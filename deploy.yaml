@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-web-app-deployment
+  labels:
+    app: argocd-web-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: argocd-web-app
+  template:
+    metadata:
+      labels:
+        app: argocd-web-app
+    spec:
+      containers:
+        - name: argocd-web-app
+          image: maulick/argocd:1.0
+          ports:
+            - containerPort: 80
