@@ -60,14 +60,15 @@
 1. **Define a Rollout Strategy**
    - Build a new Docker image for the canary version and upload it to Docker Hub.
    - Modify the Kubernetes deployment manifest to use the new Docker image and define a canary rollout strategy using Argo Rollouts.
+   - Push changes to GitHub and wait for ArgoCD to deploy change to k8s cluster automatically.
 
-2. **Trigger a Rollout** (Steps to be added later)
+2. **Trigger a Rollout**
    - Use Argo Rollouts to initiate the canary rollout.
 
-3. **Monitor the Rollout** (Steps to be added later)
+3. **Monitor the Rollout**
    - Monitor the health and performance of the canary version during the rollout.
 
 ## Task 4: Cleanup
 
-* (Details on automating cleanup steps to be added later)
+* Delete all argocd resources as a part of clean-up process.
 
