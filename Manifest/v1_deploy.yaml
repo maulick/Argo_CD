@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-app-V1-deployment
+  name: web-app-v1-deployment
   labels:
-    app: web-app-V1
+    app: web-app-v1
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: web-app-V1
+      app: web-app-v1
   template:
     metadata:
       labels:
-        app: web-app-V1
+        app: web-app-v1
     spec:
       containers:
-        - name: web-app-V1
+        - name: web-app-v1
           image: maulick/argocd:1.0
           ports:
             - containerPort: 81

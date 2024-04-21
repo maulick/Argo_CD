@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-service-V1
+  name: web-service-v1
 spec:
   type: NodePort
   selector:
-    app: web-app-V1
+    app: web-app-v1
   ports:
     - port: 81
       targetPort: 81
