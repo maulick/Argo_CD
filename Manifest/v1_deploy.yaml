@@ -1,11 +1,11 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: web-app-v1-deployment
   labels:
     app: web-app-v1
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: web-app-v1
@@ -19,3 +19,24 @@ spec:
           image: maulick/argocd:1.0
           ports:
             - containerPort: 81
+  strategy:
+    canary:
+      steps:
+      - setWeight: 10
+      - pause: {}         # pause indefinitely
+      - setWeight: 20
+      - pause: {duration: 20s}
+      - setWeight: 30
+      - pause: {duration: 20s}
+      - setWeight: 40
+      - pause: {duration: 20s}
+      - setWeight: 50
+      - pause: {duration: 20s}
+      - setWeight: 60
+      - pause: {duration: 20s}
+      - setWeight: 70
+      - pause: {duration: 20s}
+      - setWeight: 80
+      - pause: {duration: 20s}
+      - setWeight: 90
+      - pause: {duration: 20s}
